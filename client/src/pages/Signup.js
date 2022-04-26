@@ -38,30 +38,33 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="pt-10p flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
+              <label for="username"><b>User Name</b></label>
               <input
                 className="form-input"
-                placeholder="Your username"
+                placeholder="Enter User Name"
                 name="username"
                 type="username"
                 id="username"
                 value={formState.username}
                 onChange={handleChange}
               />
+              <label for="email"><b>Email</b></label>
               <input
                 className="form-input"
-                placeholder="Your email"
+                placeholder="Enter Email"
                 name="email"
                 type="email"
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
               />
+              <label for="password"><b>Password</b></label>
               <input
                 className="form-input"
                 placeholder="******"
