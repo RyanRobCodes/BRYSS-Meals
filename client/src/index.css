@@ -1262,6 +1262,7 @@ nav a:hover {
 .app {
   max-width: 1920px;
   margin: auto;
+  padding: 0 10px 0 10px;
 }
 
 .LandingPage {
@@ -1377,4 +1378,62 @@ card p{
   color: white;
   font-size: 60px;
   font-weight: 500;
+}
+
+.sidebar {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  height: 100vh;
+  background-color: #fff;
+}
+
+.sidebar-logo {
+    display: grid;
+    place-items: center;
+    height: 50px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Mochiy Pop P one', sans-serif;
+}
+
+.sidebar-menu {
+      position: relative;
+}
+
+.sidebar-menu-item {
+          display: flex;
+          align-items: center;
+          place-content: flex-start;
+          padding: 1rem 3rem;
+          font-size: 1.25rem;
+          font-weight: 500;
+          color: #555555;
+          transition: color 0.3s ease-in-out;
+}
+
+.menu-item.active {
+              color: #fff;
+          }
+
+.menu-item-icon {
+    margin-right: 1rem;
+    font-size: 1.75rem;
+}
+
+
+.indicator {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: calc(100% - 40px);
+          border-radius: 10px;
+          background-color: #308efe;
+          z-index: -1;
+          transform: translateX(-50%);
+          transition: 0.3s ease-in-out;
+}
+
+.dashboard {
+  display: flex;
 }
