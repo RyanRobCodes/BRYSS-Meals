@@ -89,15 +89,28 @@ nav {
   justify-content: center;
 }
 
+nav ul {
+  margin-block-start: 0 !important;
+  padding-inline-start: 0 !important;
+}
+
+nav ul li {
+  list-style: none;
+}
+
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
 }
 
-nav a:hover {
+nav li:hover {
   color: var(--secondary);
   background-color: var(--dark);
+}
+
+nav li a:hover {
+  color: var(--secondary);
 }
 
 .page-title {
@@ -1381,59 +1394,44 @@ card p{
 }
 
 .sidebar {
-  /* position: fixed;
-  top: 0;
-  left: 0; */
   height: 100vh;
-  background-color: #fff;
+  background-color: var(--tertiary);
 }
 
 .sidebar-logo {
-    display: grid;
-    place-items: center;
-    height: 50px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: 'Mochiy Pop P one', sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  transition: 0.5s
+}
+
+.sidebar-logo:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo a {
+  transition: 0.5s
 }
 
 .sidebar-menu {
-      position: relative;
+  position: relative;
 }
 
-.sidebar-menu-item {
-          display: flex;
-          align-items: center;
-          place-content: flex-start;
-          padding: 1rem 3rem;
-          font-size: 1.25rem;
-          font-weight: 500;
-          color: #555555;
-          transition: color 0.3s ease-in-out;
-}
-
-.menu-item.active {
-              color: #fff;
-          }
-
-.menu-item-icon {
-    margin-right: 1rem;
-    font-size: 1.75rem;
-}
-
-
-.indicator {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          width: calc(100% - 40px);
-          border-radius: 10px;
-          background-color: #308efe;
-          z-index: -1;
-          transform: translateX(-50%);
-          transition: 0.3s ease-in-out;
+.navLi {
+  width: 100%;
+  padding-left: 10px;
 }
 
 .dashboard {
   display: flex;
+}
+
+.logoutBtn{
+  border-radius: 5px;
+}
+
+.logoutBtn:hover {
+  color: white
 }

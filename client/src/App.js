@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Signup from './pages/Signup';
 import Landing from './pages/Landing';
+import Auth from './utils/auth';
 
 function App() {
 
@@ -40,7 +41,11 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
           <Switch>
-            <Route exact path ="/" component={Landing} />
+            {Auth.loggedIn() ? (
+            <Route exact path ="/" component={Dashboard} />
+            ) : (
+              <Route exact path ="/" component={Landing} />
+            )}
             <Route exact path ="/signup" component={Signup} />
             <Route exact path ="/login" component={Login} />
             <Route exact path ="/dashboard" component={Dashboard} />

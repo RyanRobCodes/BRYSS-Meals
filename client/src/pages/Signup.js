@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
 import Auth from '../utils/auth';
 
 const Signup = () => {
@@ -36,15 +35,6 @@ const Signup = () => {
       console.error(e);
     }
   };
-
-  const loginSucceed = () => {
-    if (addUser) {
-      window.location.href = "/dashboard"
-    } 
-    else {
-      console.log("There is something wrong on signup")
-    }
-  }
 
   return (
     <main className="pt-10p flex-row justify-center mb-4">
@@ -83,7 +73,7 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button onClick={loginSucceed} className="btn d-block w-100" type="submit">
+              <button className="btn d-block w-100" type="submit">
                 Submit
               </button>
             </form>
