@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 let ReactRotatingText = require('react-rotating-text');
 
 
@@ -13,7 +13,7 @@ const Landing = () => {
         "We all eat, and it would be a sad waste of opportunity to eat badly.",
         "Food brings people together on many different levels. It’s nourishment of the soul and body; it’s truly love.",
         ]
-    
+
         return (
             <div className='LandingPage'>
                 <div className='intro-center'>
@@ -30,9 +30,9 @@ const Landing = () => {
                                     <p><ReactRotatingText items={sayings}/></p>
                                 </card>
                                 <div className="center">
-                                    <button className="SignUp">Sign Up</button>
+                                    <button className="SignUp"><Link to="/signup">Sign Up</Link></button>
                                     <p2>or</p2>
-                                    <button className="Login">Login</button>
+                                    <button className="Login"><Link to="/login">Login</Link></button>
                                 </div>
                             </div>
                         </div>
