@@ -2,13 +2,30 @@ const { Schema } = require('mongoose');
 
 const MealSchema = new Schema(
   {
-    name: string,
-    price: Number,
-    mealType: string,
-    description: string,
-    ingredients: string,
-    arrivalTime: date
+    name: {
+    type: String,
+    required: true
+    },
+    price: {
+    type: Number,
+    required: true
+    },
+    mealType:{
+    type: String,
+    required: true
+    },
+    description: {
+    type: String,
+    required: true
+    },
+    ingredients: {
+    type: String,
+    required: true
+    },
+    arrivalTime: Date,
+    required: true
   }
+
 );
 
 module.exports = MealSchema;
