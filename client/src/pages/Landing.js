@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 let ReactRotatingText = require('react-rotating-text');
 
-
 const Landing = () => {
-
 
     const meals = ["VEGETARIAN", "PESCETARIAN", "MEATLOVER"]
 

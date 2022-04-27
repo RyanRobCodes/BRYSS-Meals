@@ -39,15 +39,6 @@ const Login = (props) => {
     });
   };
 
-  const loginSucceed = () => {
-    if (login) {
-      window.location.href = "/dashboard"
-    } 
-    else {
-      console.log("There is something wrong on login")
-    }
-  }
-
   return (
     <main className="pt-10p flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
@@ -75,7 +66,7 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button onClick={loginSucceed} className="btn d-block w-100" type="submit">
+              <button  className="btn d-block w-100" type="submit">
                 Submit
               </button>
             </form>

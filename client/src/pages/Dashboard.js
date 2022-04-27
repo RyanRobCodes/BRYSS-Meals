@@ -9,13 +9,12 @@ import Profile  from '../components/Profile';
 import Review  from '../components/Review';
 import Sidebar from '../components/SideBar'
 
-import Auth from '../utils/auth';
-import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+
 
 
 
 const Dashboard = () => {
+
   const [currentPage, setCurrentPage] = useState('Home');
 
   const renderPage = () => {
