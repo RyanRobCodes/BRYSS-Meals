@@ -22,6 +22,18 @@ const userSchema = new Schema(
     },
     meals: [
       {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+      }
+    ],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ],
+    friends: [
+      {
         type: Schema.Types.ObjectId,
         ref: 'User'
       }
