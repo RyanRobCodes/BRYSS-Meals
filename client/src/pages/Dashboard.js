@@ -37,6 +37,15 @@ const Dashboard = () => {
 
   const handlePageChange = (page) => setCurrentPage(page);
 
+<<<<<<< HEAD
+=======
+  // const { loading, data } = useQuery(QUERY_THOUGHTS);
+  // const { data: userData } = useQuery(QUERY_ME_BASIC);
+  // const thoughts = data?.thoughts || [];
+
+  // const loggedIn = Auth.loggedIn();
+
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
   return (
     <main>
       <Header />

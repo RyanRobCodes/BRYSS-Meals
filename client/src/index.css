@@ -1,5 +1,9 @@
 :root {
+<<<<<<< HEAD
   --primary: #16561e;
+=======
+  --primary: #16561E;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
   --secondary: #abc8a3;
   --tertiary: #F7F7F2 ;
   --quatrinary: #F7A072;
@@ -26,7 +30,11 @@ body {
 body {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   font-family: 'Roboto', sans-serif;
+=======
+  font-family: 'Karla', sans-serif;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -1283,6 +1291,7 @@ nav li a:hover {
 .app {
   max-width: 1920px;
   margin: auto;
+<<<<<<< HEAD
 }
 
 .hero {
@@ -1304,18 +1313,48 @@ nav li a:hover {
 .title {
   /* background-color: var(--primary); */
   padding-left: 20px;
+=======
+  padding: 0 10px 0 10px;
+}
+
+.LandingPage {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("./assets/images/fruits.jpg");
+  width: auto;
+  height: 100vh;
+  background-size: cover;
+}
+
+.intro-center {
+  margin: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100vh;
+  padding: 17% 10% 50% 10%;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 }
 
 .title p{
   font-family: 'Square Peg', cursive;
+<<<<<<< HEAD
   font-size: 130px;
   color: black;
   line-height: 100%;
   margin:auto;
+=======
+  font-size: 150px;
+  text-align: center;
+  margin: auto;
+  color: var(--tertiary)
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 }
 
 .intro-holder{
   display: flex;
+<<<<<<< HEAD
+=======
+  flex-wrap: wrap;
+  align-items: center;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 }
 
 .rotateText {
@@ -1329,6 +1368,7 @@ nav li a:hover {
   color: white;
 }
 
+<<<<<<< HEAD
 .intro-text {
   background-color: #16561e;
   padding-left: 10px;
@@ -1367,10 +1407,13 @@ nav li a:hover {
   background-size: cover;
 }
 
+=======
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 .startUp {
   font-family: 'Inconsolata', monospace;
   display: flex;
   flex-wrap: wrap;
+<<<<<<< HEAD
   align-content: center;
   padding: 10px;
 }
@@ -1389,18 +1432,52 @@ nav li a:hover {
 
 .badge {
   width: 75%;
+=======
+  align-content: space-between;
+  padding: 10px;
+}
+
+card p{
+  background-color: rgba(255,  255, 255, 0.8);
+  min-height: 200px;
+  width: 250px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+
+}
+
+.center {
+  display: flex;
+  justify-content: space-evenly;
+  width:100%;
+}
+
+.center p2 {
+  margin-top: 5px;
+  color: var(--tertiary);
+  font-weight: 900;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 }
 
 .SignUp {
   background-color: var(--tertiary);
   border: none;
   color: var(--primary);
+<<<<<<< HEAD
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
   width: 120px;
+=======
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 140px;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
   font-weight: 700;
   border-radius: 5px;
   transition: 0.5s;
@@ -1415,20 +1492,33 @@ nav li a:hover {
   background-color: var(--primary);
   border: none;
   color: var(--tertiary);
+<<<<<<< HEAD
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
   width: 120px;
+=======
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 140px;
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
   font-weight: 700;
   border-radius: 5px;
   transition: 0.5s;
 }
 
 .Login:hover {
+<<<<<<< HEAD
   color: var(--primary);
   background-color: var(--secondary);
+=======
+  background-color: var(--dark);
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 }
 
 .header-title {
@@ -1479,6 +1569,7 @@ nav li a:hover {
 
 .logoutBtn:hover {
   color: white
+<<<<<<< HEAD
 }
 
 .modal {
@@ -1571,4 +1662,6 @@ nav li a:hover {
 
 .modal-btn {
 
+=======
+>>>>>>> aba9a9c3551147f2b316545ff2d5704b2b1db832
 }

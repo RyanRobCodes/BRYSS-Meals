@@ -5,9 +5,23 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    friendCount: Int
-    thoughts: [Thought]
-    friends: [User]
+    meals: User
+  }
+
+  type Meals {
+    _id: ID
+    name: String
+    price: Int
+    mealType: String
+    description: String
+  }
+
+  type Review {
+    _id: ID
+    reviewText: String
+    createdAt: String
+    username: String
+    meals [mealSchema]
   }
 
   type Thought {
@@ -35,8 +49,8 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(_id: ID!): Thought
+    meals(_id: ID!): Meals
+    review(_id: ID!): Review
   }
 
   type Mutation {
