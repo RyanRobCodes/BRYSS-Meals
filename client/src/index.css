@@ -1,5 +1,5 @@
 :root {
-  --primary: #16561E;
+  --primary: #16561e;
   --secondary: #abc8a3;
   --tertiary: #F7F7F2 ;
   --quatrinary: #F7A072;
@@ -26,7 +26,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -248,7 +248,15 @@ nav li a:hover {
 }
 
 /* LAYOUT */
+
 .container {
+  max-width: 1940px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-container {
   width: 85%;
   max-width: 1200px;
   margin-left: auto;
@@ -1275,36 +1283,39 @@ nav li a:hover {
 .app {
   max-width: 1920px;
   margin: auto;
-  padding: 0 10px 0 10px;
+}
+
+.hero {
+  /* background-image: linear-gradient(rgba(167, 167, 167, 0.5), rgba(167, 167, 167, 0.5)),url("./assets/images/fruits.jpg"); */
+  background-size: cover;
+  height: 30vh;
 }
 
 .LandingPage {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("./assets/images/fruits.jpg");
   width: auto;
   height: 100vh;
-  background-size: cover;
 }
 
 .intro-center {
-  margin: auto;
-  flex-wrap: wrap;
   align-items: center;
   height: 100vh;
-  padding: 17% 10% 50% 10%;
+}
+
+.title {
+  /* background-color: var(--primary); */
+  padding-left: 20px;
 }
 
 .title p{
   font-family: 'Square Peg', cursive;
-  font-size: 150px;
-  text-align: center;
-  margin: auto;
-  color: var(--tertiary)
+  font-size: 130px;
+  color: black;
+  line-height: 100%;
+  margin:auto;
 }
 
 .intro-holder{
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 .rotateText {
@@ -1318,45 +1329,78 @@ nav li a:hover {
   color: white;
 }
 
+.intro-text {
+  background-color: #16561e;
+  padding-left: 10px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.inspiration{
+  padding:10px;
+  background-color: white;
+  color: black;
+  font-family: 'roboto', sans-serif;
+  font-weight: 500;
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 0 60px 0;
+  justify-content: center;
+}
+
+.quote {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.promise {
+  padding-top: 40px;
+  border-top: solid black 1px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.sideCard {
+  background-image: url("./assets/images/chef2.jpg");
+  height: 100vh;
+  background-size: cover;
+}
+
 .startUp {
   font-family: 'Inconsolata', monospace;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
+  align-content: center;
   padding: 10px;
-}
-
-card p{
-  background-color: rgba(255,  255, 255, 0.8);
-  min-height: 200px;
-  width: 250px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px;
-
 }
 
 .center {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: right;
   width:100%;
+  gap: 20px;
 }
 
-.center p2 {
-  margin-top: 5px;
-  color: var(--tertiary);
-  font-weight: 900;
+.badge-holder {
+  margin-top: 100px;
+  padding-bottom: 50px;
+}
+
+.badge {
+  width: 75%;
 }
 
 .SignUp {
   background-color: var(--tertiary);
   border: none;
   color: var(--primary);
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  width: 140px;
+  font-size: 14px;
+  width: 120px;
   font-weight: 700;
   border-radius: 5px;
   transition: 0.5s;
@@ -1371,19 +1415,20 @@ card p{
   background-color: var(--primary);
   border: none;
   color: var(--tertiary);
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  width: 140px;
+  font-size: 14px;
+  width: 120px;
   font-weight: 700;
   border-radius: 5px;
   transition: 0.5s;
 }
 
 .Login:hover {
-  background-color: var(--dark);
+  color: var(--primary);
+  background-color: var(--secondary);
 }
 
 .header-title {
@@ -1434,4 +1479,96 @@ card p{
 
 .logoutBtn:hover {
   color: white
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 60%;
+  background-color: white;
+  min-height: auto;
+}
+
+.modal-header, modal-footer {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-sub {
+  font-size: 1.0rem;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid lightslategray;
+  border-bottom: 1px solid lightslategray;
+}
+
+.modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+
+.modal-image {
+  display: flex;
+  justify-content: center;
+  width: 50%
+}
+
+.modal-image img{
+  max-width: 500px;
+  height: fit-content;
+  width: 100%
+}
+
+.modal-info {
+  display: flex;
+  width: 50%;
+  column-gap: 15px;
+}
+
+.modal-info p {
+  max-width: 400px;
+}
+
+.modal-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.ingredients {
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+
+.modal-ingredient p {
+  color: rgb(0, 0, 0);
+  font-weight: lighter;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.modal-btn {
+
 }

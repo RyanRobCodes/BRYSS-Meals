@@ -6,17 +6,12 @@ import { QUERY_ME_BASIC } from "../../utils/queries";
 const Sidebar = ({currentPage, handlePageChange}) => {
     const { data: userData } = useQuery(QUERY_ME_BASIC);
 
-    // let currentUser = userData.me.username
-    
-
-    console.log(userData)
+    let currentUser = userData?.me?.username
 
     return (
     <div className='sidebar'>
         <div className={`sidebar-logo navLi  ${currentPage==='Home' ? 'navActive' : ' '}`}>
-            <a href="#Home" onClick={() => handlePageChange('Home')}>Hi, 
-            {/* {currentUser} */}
-            </a>
+            <a href="#Home" onClick={() => handlePageChange('Home')}>Hi, {currentUser}</a>
         </div>
         <nav className="sidebar-menu">
             <ul>
