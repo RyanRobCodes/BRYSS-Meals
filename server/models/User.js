@@ -20,13 +20,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-      }
-    ],
-    friends: [
+    meals: [
       {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -55,8 +49,8 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual('friendCount').get(function() {
-  return this.friends.length;
+userSchema.virtual('mealCount').get(function() {
+  return this.meals.length;
 });
 
 const User = model('User', userSchema);

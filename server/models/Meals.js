@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-const MealSchema = new Schema(
+const mealSchema = new Schema(
   {
     name: {
     type: String,
@@ -18,14 +18,12 @@ const MealSchema = new Schema(
     type: String,
     required: true
     },
-    ingredients: {
+    image: {
     type: String,
     required: true
-    },
-    arrivalTime: Date,
-    required: true
+    }
   }
 
 );
 
-module.exports = MealSchema;
+module.exports = mealSchema;
