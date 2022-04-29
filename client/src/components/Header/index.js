@@ -10,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary mb-4 pt-1 flex-row align-center">
+    <header className="bg-secondary py-1 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
           <h1 className='header-title'>BRYSS</h1>
