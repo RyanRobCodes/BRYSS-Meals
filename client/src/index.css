@@ -148,6 +148,24 @@ nav li a:hover {
   display: inline;
 }
 
+.btn-newAddress {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--primary);
+  outline: none;
+  background-color: var(--secondary);
+  transition: all 0.5s;
+}
+
+.btn-newAddress:hover {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
@@ -171,6 +189,33 @@ nav li a:hover {
 }
 
 /* FORM */
+.form-profile {
+  display:flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 3rem;
+  border: none;
+  padding: 0.75rem;
+  margin: 0.2rem 0;
+  font-size: 1.0rem;
+  border-radius: var(--border-radius);
+  background: #f1f1f1
+}
+
+.address-book{
+  width: 50%;
+  border: none;
+  padding: 0.75rem;
+  margin: 0.2rem 0;
+  font-size: 1.0rem;
+  border-radius: var(--border-radius);
+  background: #f1f1f1
+}
+
+.profileEditBtn {
+  border: none;
+}
+
 .form-label,
 .form-input,
 .form-textarea {
@@ -248,12 +293,21 @@ nav li a:hover {
 }
 
 /* LAYOUT */
+main {
+  position: relative;
+  min-height: 100vh;
+}
 
 .container {
   max-width: 1940px;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-container {
@@ -1283,6 +1337,7 @@ nav li a:hover {
 .app {
   max-width: 1920px;
   margin: auto;
+  height: 100vh;
 }
 
 .hero {
@@ -1304,6 +1359,8 @@ nav li a:hover {
 .title {
   /* background-color: var(--primary); */
   padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .title p{
@@ -1439,7 +1496,7 @@ nav li a:hover {
 }
 
 .sidebar {
-  height: 100vh;
+  height: 100%;
   background-color: var(--tertiary);
 }
 
@@ -1469,8 +1526,15 @@ nav li a:hover {
   padding-left: 10px;
 }
 
+.navActive a {
+  color: var(--secondary);
+  font-weight: bolder;
+}
+
 .dashboard {
   display: flex;
+  height: 100%;
+  min-height: 90vh;
 }
 
 .logoutBtn{
@@ -1497,9 +1561,17 @@ nav li a:hover {
   width: 60%;
   background-color: white;
   min-height: auto;
+  padding: 10px;
 }
 
-.modal-header, modal-footer {
+.modal-address-content {
+  max-width: 1000px;
+  background-color: white;
+  min-height: auto;
+  padding: 10px;
+}
+
+.modal-header, .modal-footer {
   display: flex;
   padding: 10px;
   align-items: center;
@@ -1563,12 +1635,29 @@ nav li a:hover {
   font-weight: lighter;
 }
 
-.modal-footer {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+.modal-btn {
+  color: black
 }
 
-.modal-btn {
+.address-holder {
+  display: flex;
+  gap: 10px;
+}
 
+.address {
+  margin-bottom: 5px;
+  width: 250px;
+  height: 100px;
+  background-color: var(--secondary);
+  border: 3px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-name{
+  text-align: center;
+  color: var(--dark);
+  margin: 5px;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
