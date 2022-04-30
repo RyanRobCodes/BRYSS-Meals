@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001334",
     "react-rotating-text": "^1.4.1"
   }
 }
