@@ -1,40 +1,30 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_THOUGHTS = gql`
-  query thoughts($username: String) {
-    thoughts(username: $username) {
+export const QUERY_ADDRESSES = gql`
+  query addresses($username: String) {
+    addresses(username: $username) {
       _id
-      thoughtText
-      createdAt
-      username
-      reactionCount
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
+      addressName
+      streetName
+      cityName
+      state
+      zipCode
     }
   }
-`;
+`
 
-export const QUERY_THOUGHT = gql`
-  query thought($id: ID!) {
-    thought(_id: $id) {
+export const QUERY_ADDRESS = gql`
+  query address($id: ID!) {
+    address(_id: $id) {
       _id
-      thoughtText
-      createdAt
-      username
-      reactionCount
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
+      addressName
+      streetName
+      cityName
+      state
+      zipCode
     }
   }
-`;
+`
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -42,20 +32,23 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
-      friends {
+      addresses {
         _id
-        username
+        addressName
+        streetName
+        cityName
+        state
+        zipCode
       }
-      thoughts {
+      meals {
         _id
-        thoughtText
+        reviewText
         createdAt
-        reactionCount
       }
     }
   }
 `;
+
 
 export const QUERY_ME = gql`
   {
@@ -63,12 +56,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      friendCount
-      thoughts {
+      meals {
         _id
-        thoughtText
+        reviewText
         createdAt
-        reactionCount
         reactions {
           _id
           createdAt
@@ -76,9 +67,13 @@ export const QUERY_ME = gql`
           username
         }
       }
-      friends {
+      addresses {
         _id
-        username
+        addressName
+        streetName
+        cityName
+        state
+        zipCode
       }
     }
   }
@@ -93,3 +88,40 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+export const QUERY_MEALS = gql`
+  query meals($username: String) {
+    meals(username: $username) {
+      _id
+      reviewText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_MEAL = gql`
+  query meal($id: ID!) {
+    meal(_id: $id) {
+      _id
+      reviewText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+

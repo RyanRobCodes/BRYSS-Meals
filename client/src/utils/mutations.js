@@ -24,7 +24,20 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
+export const ADD_ADDRESS =gql`
+  mutation addAddress($addressName: String!, $streetName: String!, $cityName: String!, $state: String!, $zipCode: String!) {
+    addAddress(addressName: $addressName, streetName: $streetName, cityName: $cityName, state: $state, zipCode: $zipCode) {
+      _id
+      addressName
+      streetName
+      cityName
+      state
+      zipCode
+    }
+  }
+`;
+
+export const ADD_MEAL = gql`
   mutation addThought($thoughtText: String!) {
     addThought(thoughtText: $thoughtText) {
       _id
@@ -54,29 +67,29 @@ export const ADD_REACTION = gql`
   }
 `;
 
-export const ADD_FRIEND = gql`
-  mutation addFriend($id: ID!) {
-    addFriend(friendId: $id) {
-      _id
-      username
-      friendCount
-      friends {
-        _id
-        username
-      }
-    }
-  }
-`;
+// export const ADD_FRIEND = gql`
+//   mutation addFriend($id: ID!) {
+//     addFriend(friendId: $id) {
+//       _id
+//       username
+//       friendCount
+//       friends {
+//         _id
+//         username
+//       }
+//     }
+//   }
+// `;
 
-export const REMOVE_FRIEND = gql`
-  mutation removeFriend($id: ID!) {
-    removeFriend(id: $id) {
-      _id
-      username
-      friends {
-        _id
-        username
-      }
-    }
-  }
-`;
+// export const REMOVE_FRIEND = gql`
+//   mutation removeFriend($id: ID!) {
+//     removeFriend(id: $id) {
+//       _id
+//       username
+//       friends {
+//         _id
+//         username
+//       }
+//     }
+//   }
+// `;
