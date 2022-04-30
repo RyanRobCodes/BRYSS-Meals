@@ -41,7 +41,7 @@ export const ADD_MEAL = gql`
   mutation addThought($thoughtText: String!) {
     addThought(thoughtText: $thoughtText) {
       _id
-      thoughtText
+      reviewText
       createdAt
       username
       reactionCount
