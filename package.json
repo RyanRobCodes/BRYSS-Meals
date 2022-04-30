@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "apollo-server-express": "^3.6.7",
     "caniuse-lite": "^1.0.30001334",
     "express": "^4.18.1",
     "react-rotating-text": "^1.4.1"
