@@ -149,7 +149,8 @@ nav li a:hover {
 }
 
 .btn-newAddress {
-  font-size: 1.3rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
   margin: 5px 0;
@@ -1653,6 +1654,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
+}
+
+.address:hover {
+  background-color: var(--light);
 }
 
 .address-name{
