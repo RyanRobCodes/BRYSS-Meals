@@ -1,5 +1,5 @@
 const User = require('./User');
 const Address = require('./Address')
-const Meals = require('./Meals')
+const Meal = require('./Meal')
 
-module.exports = { User, Address, Meals };
+module.exports = { User, Address, Meal };

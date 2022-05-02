@@ -8,6 +8,7 @@ const AddressEdit = ({currentAddress, onClose, show}) => {
     if (!show) {
       return null
   }
+  
 
   return (
     <div className="modal" onClick={onClose}>

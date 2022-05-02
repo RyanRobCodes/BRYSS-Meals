@@ -29,7 +29,7 @@ const userSchema = new Schema(
     meals: [
       {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'Meal'
       }
     ],
   },

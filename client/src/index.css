@@ -1689,3 +1689,26 @@ main {
   background-color: var(--light);
   color: var(--primary)
 }
+
+.mealContainer{
+  flex-wrap: wrap;
+}
+
+.mealType {
+  padding-left: 20px;
+  font-size: larger;
+  background-color: var(--secondary);
+  color: var(--primary)
+}
+
+.mealList {
+  display: flex;
+  gap: 20px;
+}
+
+.eachMeals {
+  padding:5px;
+  width: 200px;
+  min-height: 200px;
+  border: var(--primary) 2px solid;
+}

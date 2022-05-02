@@ -9,10 +9,6 @@ import Profile  from '../components/Profile';
 import Review  from '../components/Review';
 import Sidebar from '../components/SideBar'
 
-
-
-
-
 const Dashboard = () => {
 
   const [currentPage, setCurrentPage] = useState('Home');

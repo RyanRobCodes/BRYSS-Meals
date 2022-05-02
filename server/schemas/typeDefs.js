@@ -5,11 +5,11 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    meals: User
+    meals: [Meal]
     addresses: [Address]
   } 
 
-  type Meals {
+  type Meal {
     _id: ID
     name: String
     price: Int
@@ -22,7 +22,7 @@ const typeDefs = gql`
     reviewText: String
     createdAt: String
     username: String
-    meals: [Meals]
+    meals: [Meal]
   }
 
   type Auth {
@@ -45,7 +45,8 @@ const typeDefs = gql`
     user(username: String!): User
     addresses(username: String): [Address]
     address(_id: ID!): Address
-    meals(_id: ID!): Meals
+    meals: [Meal]
+    meal(_id: ID!): Meal
     review(_id: ID!): Review
   }
 
@@ -53,6 +54,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addAddress(addressName: String!, streetName: String!, cityName: String!, state: String!, zipCode: String!): Address
+    addMeals(name: String!, price: Int!, mealType: String!, description: String!, image: String!): Meal
   }
 `;
 
