@@ -20,24 +20,18 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    addresses: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Address'
+        }
+      ],
     meals: [
       {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'Meal'
       }
     ],
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-      }
-    ],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      }
-    ]
   },
   {
     toJSON: {

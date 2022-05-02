@@ -5,10 +5,11 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    meals: User
-  }
+    meals: [Meal]
+    addresses: [Address]
+  } 
 
-  type Meals {
+  type Meal {
     _id: ID
     name: String
     price: Int
@@ -21,23 +22,7 @@ const typeDefs = gql`
     reviewText: String
     createdAt: String
     username: String
-    meals [mealSchema]
-  }
-
-  type Thought {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [Reaction]
-  }
-
-  type Reaction {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
+    meals: [Meal]
   }
 
   type Auth {
@@ -45,11 +30,23 @@ const typeDefs = gql`
     user: User
   }
 
+  type Address {
+    _id: ID
+    addressName: String
+    streetName: String
+    cityName: String
+    state: String
+    zipCode: String
+  }
+
   type Query {
     me: User
     users: [User]
     user(username: String!): User
-    meals(_id: ID!): Meals
+    addresses(username: String): [Address]
+    address(_id: ID!): Address
+    meals: [Meal]
+    meal(_id: ID!): Meal
     review(_id: ID!): Review
   }
 
@@ -57,9 +54,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addReview(reviewText: String!): Review
-    addThought(thoughtText: String!): Thought
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
-    addFriend(friendId: ID!): User
+    addAddress(addressName: String!, streetName: String!, cityName: String!, state: String!, zipCode: String!): Address
+    addMeals(name: String!, price: Int!, mealType: String!, description: String!, image: String!): Meal
   }
 `;
 

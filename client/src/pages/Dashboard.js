@@ -9,10 +9,6 @@ import Profile  from '../components/Profile';
 import Review  from '../components/Review';
 import Sidebar from '../components/SideBar'
 
-
-
-
-
 const Dashboard = () => {
 
   const [currentPage, setCurrentPage] = useState('Home');
@@ -36,12 +32,6 @@ const Dashboard = () => {
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
-
-  // const { loading, data } = useQuery(QUERY_THOUGHTS);
-  // const { data: userData } = useQuery(QUERY_ME_BASIC);
-  // const thoughts = data?.thoughts || [];
-
-  // const loggedIn = Auth.loggedIn();
 
   return (
     <main>

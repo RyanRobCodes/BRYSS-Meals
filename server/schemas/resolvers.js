@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Meals, Review } = require('../models');
+const { User, Meal, Review, Address } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,8 +8,9 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('meals')
+          .populate('Meal')
           .populate('Review')
+          .populate('Address')
 
         return userData;
       }
@@ -19,20 +20,36 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('meals')
+        .populate('Meal')
         .populate('Review')
+        .populate('Address')
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-      .populate('meals')
+      .populate('Meal')
       .populate('Review')
+      .populate('Address')
     },
     reviews: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Review.find(params).sort({ createdAt: -1 });
+      return Review.find(params)
     },
-    meals: async (parent, { _id }) => {
-      return Meals.findOne({ _id });
+    review: async (parent, { _id }) => {
+      return Review.findOne({ _id });
+    },
+    meals: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Meal.find(params)
+    },
+    meal: async (parent, { _id }) => {
+      return Meal.findOne({ _id });
+    },
+    addresses: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Address.find(params)
+    },
+    address: async (parent, { _id }) => {
+      return Address.findOne({ _id });
     }
   },
 
@@ -59,47 +76,51 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addThought: async (parent, args, context) => {
+    addAddress: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
-
+        const address = await Address.create({...args, username: context.user.username});
+          
         await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { thoughts: thought._id } },
-          { new: true }
-        );
+            { _id: context.user._id },
+            { $push: {addresses: address._id }},
+            { new: true }
+          );
 
-        return thought;
+        return address;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    }, 
+    addMeals: async (parent, args, context) => {
+      if (context.user) {
+        const meal = await Meal.create({...args, username: context.user.username});
+          
+        await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: {meals: meal._id }},
+            { new: true }
+          );
+
+        return meal;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReaction: async (parent, { thoughtId, reactionBody }, context) => {
+    addReview: async (parent, args, context) => {
       if (context.user) {
-        const updatedThought = await Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
-          { new: true, runValidators: true }
-        );
+        const review = await Review.create({...args, username: context.user.username});
+          
+        await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: {reviews: review._id }},
+            { new: true }
+          );
 
-        return updatedThought;
+        return review;
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    },
-    addFriend: async (parent, { friendId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { friends: friendId } },
-          { new: true }
-        ).populate('friends');
-
-        return updatedUser;
-      }
-
-      throw new AuthenticationError('You need to be logged in!');
-    }
+    }, 
   }
 };
 

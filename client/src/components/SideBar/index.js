@@ -1,22 +1,17 @@
 import React from "react"; 
 import { useQuery } from '@apollo/client';
-import { QUERY_ME_BASIC } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 
 
 const Sidebar = ({currentPage, handlePageChange}) => {
-    const { data: userData } = useQuery(QUERY_ME_BASIC);
+    const { data: userData } = useQuery(QUERY_ME);
 
-    // let currentUser = userData.me.username
-    
-
-    console.log(userData)
+    let currentUser = userData?.me?.username
 
     return (
     <div className='sidebar'>
-        <div className={`sidebar-logo navLi  ${currentPage==='Home' ? 'navActive' : ' '}`}>
-            <a href="#Home" onClick={() => handlePageChange('Home')}>Hi, 
-            {/* {currentUser} */}
-            </a>
+        <div className={`sidebar-logo navLi`}>
+            <a href="#Home" onClick={() => handlePageChange('Home')}>Hi, {currentUser}</a>
         </div>
         <nav className="sidebar-menu">
             <ul>
