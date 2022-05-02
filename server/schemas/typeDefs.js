@@ -27,7 +27,6 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-
     addresses(username: String): [Address]
     address(_id: ID!): Address
   }
