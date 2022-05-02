@@ -6,11 +6,8 @@ const typeDefs = gql`
     username: String
     email: String
     meals: User
-<<<<<<< HEAD
     addresses: [Address]
   } 
-=======
-  }
 
   type Meals {
     _id: ID
@@ -25,25 +22,8 @@ const typeDefs = gql`
     reviewText: String
     createdAt: String
     username: String
-    meals [mealSchema]
+    meals: [Meals]
   }
-
-  type Thought {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [Reaction]
-  }
-
-  type Reaction {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
-  }
->>>>>>> 2266e48bc9ca5ea3633f4dc28f42d324c90f7e29
 
   type Auth {
     token: ID!
@@ -63,13 +43,10 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-<<<<<<< HEAD
     addresses(username: String): [Address]
     address(_id: ID!): Address
-=======
     meals(_id: ID!): Meals
     review(_id: ID!): Review
->>>>>>> 2266e48bc9ca5ea3633f4dc28f42d324c90f7e29
   }
 
   type Mutation {

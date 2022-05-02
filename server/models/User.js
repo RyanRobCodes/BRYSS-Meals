@@ -20,22 +20,18 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
-<<<<<<< HEAD
     addresses: [
-=======
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Address'
+        }
+      ],
     meals: [
       {
       type: Schema.Types.ObjectId,
       ref: 'User'
       }
     ],
-    thoughts: [
->>>>>>> 2266e48bc9ca5ea3633f4dc28f42d324c90f7e29
-      {
-      type: Schema.Types.ObjectId,
-      ref: 'Address'
-      }
-    ]
   },
   {
     toJSON: {
@@ -59,13 +55,10 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-<<<<<<< HEAD
-=======
 userSchema.virtual('mealCount').get(function() {
   return this.meals.length;
 });
 
->>>>>>> 2266e48bc9ca5ea3633f4dc28f42d324c90f7e29
 const User = model('User', userSchema);
 
 module.exports = User;
