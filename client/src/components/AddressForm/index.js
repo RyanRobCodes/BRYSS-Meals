@@ -104,9 +104,12 @@ const Address = (e) => {
                 className="form-input col-12"
                 onChange={handleChange5}
             ></input>
-            <div className='col-12'>
-              <button onClick={e.onClose} className="btn-newAddress col-12 col-md-3" type="submit">
-                Submit
+            <div className='col-12 flex-row justify-space-around'>
+              <button className="btn-newAddress col-12 col-md-3" type="submit">
+                Submit Address
+              </button>
+              <button className="btn-newAddress col-12 col-md-3" onClick={e.onClose}>
+                Close
               </button>
             </div>
         </form>

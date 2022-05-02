@@ -28,8 +28,6 @@ const Profile = () => {
       <label><b>User Name</b></label>
         <div className="form-profile">
           {user?.username}
-          {/* <button className="profileEditBtn" onClick={() => setShowUsername(true)}> {'>'} </button> */}
-          {/* <UsernameEdit username={user.username} onClose={() => setShowUsername(false)} show={showUsername}/> */}
         </div>
       <label><b>Email</b></label>
         <div className="form-profile">
@@ -37,12 +35,12 @@ const Profile = () => {
 
         </div>
 
-      <label for="address"><b>Address Book</b></label>
+      <label ><b>Address Book</b></label>
         <div className="address-book">
-            <div>
-              <AddressList addresses={user.addresses} title={`${user.username}'s address book`} />
+            <div className="col-12">
+              <AddressList addresses={user.addresses} title={`${user.username}'s address book: `} />
             </div>
-            <div>
+            <div className="col-12">
                 <button className="btn-newAddress" onClick={() => setShow(true)}>ADD ADDRESS</button>
                 <AddressForm onClose={() => setShow(false)} show={show}/>
               </div>

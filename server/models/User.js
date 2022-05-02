@@ -22,10 +22,16 @@ const userSchema = new Schema(
     },
     addresses: [
       {
+        type: Schema.Types.ObjectId,
+        ref: 'Address'
+        }
+      ],
+    meals: [
+      {
       type: Schema.Types.ObjectId,
-      ref: 'Address'
+      ref: 'Meal'
       }
-    ]
+    ],
   },
   {
     toJSON: {
@@ -48,6 +54,10 @@ userSchema.pre('save', async function(next) {
 userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual('mealCount').get(function() {
+  return this.meals.length;
+});
 
 const User = model('User', userSchema);
 

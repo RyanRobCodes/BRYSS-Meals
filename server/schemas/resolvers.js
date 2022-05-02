@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Address } = require('../models');
+const { User, Address, Meal } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -31,6 +31,12 @@ const resolvers = {
     },
     address: async (parent, { _id }) => {
       return Address.findOne({ _id });
+    },
+    meals: async () => {
+      return Meal.find()
+    },
+    address: async (parent, { _id }) => {
+      return Meal.findOne({ _id });
     },
   },
 
@@ -67,8 +73,22 @@ const resolvers = {
             { new: true }
           );
 
-
         return address;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    }, 
+    addMeals: async (parent, args, context) => {
+      if (context.user) {
+        const meal = await Meal.create({...args, username: context.user.username});
+          
+        await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: {meals: meal._id }},
+            { new: true }
+          );
+
+        return meal;
       }
 
       throw new AuthenticationError('You need to be logged in!');

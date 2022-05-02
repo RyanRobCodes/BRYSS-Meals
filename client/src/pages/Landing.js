@@ -9,7 +9,7 @@ let ReactRotatingText = require('react-rotating-text');
 
 const Landing = () => {
 
-    const meals = ["VEGETARIAN", "PESCETARIAN", "MEATLOVER"]
+    const meals = ["VEGETARIANS", "PESCETARIANS", "MEATLOVERS"]
 
     // const sayings = [
     //     "After a good dinner one can forgive anybody, even one's own relatives.", 

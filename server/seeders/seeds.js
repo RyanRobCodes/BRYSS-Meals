@@ -1,75 +1,97 @@
-const faker = require('faker');
-
 const db = require('../config/connection');
-const { Thought, User } = require('../models');
+const { Meal} = require('../models')
 
 db.once('open', async () => {
-  await Thought.deleteMany({});
-  await User.deleteMany({});
+    await Meal.deleteMany();
+    const meals = await Meal.insertMany([
+        {
+          name: "Walnut-Lentil Bolognese",
+          price: 12,
+          mealType: "Vegetarian",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal1.jpg"
+        },
+        {
+          name: "Creamy Goat Cheese Polenta With Ratatouille",
+          price: 12,
+          mealType: "Vegetarian",
+          description: "Bowl of super creamy, cheesy goat cheese polenta that makes a dinner that’s hearty and warming, fresh and oh-so-flavorful.",
+          image: "meal2.jpg"
+        },
+        {
+          name: "Butternut Squash Soup",
+          price: 12,
+          mealType: "Vegetarian",
+          description: "We gathered all the best fall ingredients, roasted them in the oven and then placed them in a blender for a silky smooth soup.",
+          image: "meal3.jpg"
+        },
+        {
+          name: "Kung Pao Tofu",
+          price: 12,
+          mealType: "Vegetarian",
+          description: "Think tofu fried in little sesame oil, doused in spicy Kung Pao sauce and tossed with plenty of veggies.",
+          image: "meal4.jpg"
+        },
+        {
+          name: "Blackened Salmon with Mango Salsa and Avocado",
+          price: 16,
+          mealType: "Pescatarian",
+          description: "Healthy, fresh, vibrant and so-satisfying, this blackened salmon recipe is here to transform your dinnertime rut blues into vibrant, glittery rainbows of excitement.",
+          image: "meal5.jpg"
+        },
+        {
+          name: "Shrimp Melt with Capers and Old Bay Seasoning",
+          price: 16,
+          mealType: "Pescatarian",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal6.jpg"
+        },
+        {
+          name: "Chimichurri Shrimp with Creamy Polenta",
+          price: 16,
+          mealType: "Pescatarian",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal7.jpg"
+        },
+        {
+          name: "Clam Chowder",
+          price: 16,
+          mealType: "Pescatarian",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal8.jpg"
+        },
+        {
+          name: "Chicken Adobo",
+          price: 14,
+          mealType: "Carnivore",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal9.jpg"
+        },
+        {
+          name: "5-Ingredient Chicken Meatball Soup with Kale & Parmesan",
+          price: 14,
+          mealType: "Carnivore",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal10.jpg"
+        },
+        {
+          name: "Pork Loin Roast",
+          price: 14,
+          mealType: "Carnivore",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal11.jpg"
+        },
+        {
+          name: "Turkey Shepherd’s Pie",
+          price: 14,
+          mealType: "Carnivore",
+          description: "Healthy, hearty, vegan, rich, quick, easy, yummy—this walnut and lentil bolognese is an update on childhood favorite and a weeknight superstar.",
+          image: "meal12.jpg"
+        }
+      ]
 
-  // create user data
-  const userData = [];
+    )
+    console.log('products seeded');
 
-  for (let i = 0; i < 50; i += 1) {
-    const username = faker.internet.userName();
-    const email = faker.internet.email(username);
-    const password = faker.internet.password();
-
-    userData.push({ username, email, password });
-  }
-
-  const createdUsers = await User.collection.insertMany(userData);
-
-  // create friends
-  for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
-
-    let friendId = userId;
-
-    while (friendId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
-    }
-
-    await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  }
-
-  // create thoughts
-  let createdThoughts = [];
-  for (let i = 0; i < 100; i += 1) {
-    const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
-
-    const createdThought = await Thought.create({ thoughtText, username });
-
-    const updatedUser = await User.updateOne(
-      { _id: userId },
-      { $push: { thoughts: createdThought._id } }
-    );
-
-    createdThoughts.push(createdThought);
-  }
-
-  // create reactions
-  for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username } = createdUsers.ops[randomUserIndex];
-
-    const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
-
-    await Thought.updateOne(
-      { _id: thoughtId },
-      { $push: { reactions: { reactionBody, username } } },
-      { runValidators: true }
-    );
-  }
-
-  console.log('all done!');
-  process.exit(0);
-});
+    process.exit();
+})

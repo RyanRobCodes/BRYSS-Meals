@@ -149,7 +149,8 @@ nav li a:hover {
 }
 
 .btn-newAddress {
-  font-size: 1.3rem;
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
   margin: 5px 0;
@@ -194,16 +195,6 @@ nav li a:hover {
   justify-content: space-between;
   width: 50%;
   height: 3rem;
-  border: none;
-  padding: 0.75rem;
-  margin: 0.2rem 0;
-  font-size: 1.0rem;
-  border-radius: var(--border-radius);
-  background: #f1f1f1
-}
-
-.address-book{
-  width: 50%;
   border: none;
   padding: 0.75rem;
   margin: 0.2rem 0;
@@ -1639,20 +1630,39 @@ main {
   color: black
 }
 
+.address-book{
+  width: 100%;
+  border: none;
+  padding: 0.75rem;
+  margin: 0.2rem 0;
+  font-size: 1.0rem;
+  border-radius: var(--border-radius);
+  background: #f1f1f1
+}
+
+
 .address-holder {
+  width: 100%;
+  flex-wrap: wrap;
   display: flex;
   gap: 10px;
 }
 
 .address {
+  padding: 5px;
+  flex-wrap: wrap;
   margin-bottom: 5px;
-  width: 250px;
+  width: 150px;
   height: 100px;
   background-color: var(--secondary);
   border: 3px solid var(--primary);
-  display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
+}
+
+.address:hover {
+  background-color: var(--light);
 }
 
 .address-name{
@@ -1660,4 +1670,45 @@ main {
   color: var(--dark);
   margin: 5px;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.address-name {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.font-bold {
+  font-weight: bolder;
+}
+
+.address-edit-btn {
+  border: var(--primary) 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: var(--light);
+  color: var(--primary)
+}
+
+.mealContainer{
+  flex-wrap: wrap;
+}
+
+.mealType {
+  padding-left: 20px;
+  font-size: larger;
+  background-color: var(--secondary);
+  color: var(--primary)
+}
+
+.mealList {
+  display: flex;
+  gap: 20px;
+}
+
+.eachMeals {
+  padding:5px;
+  width: 200px;
+  min-height: 200px;
+  border: var(--primary) 2px solid;
 }
