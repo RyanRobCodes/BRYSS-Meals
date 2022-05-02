@@ -1,40 +1,30 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_THOUGHTS = gql`
-  query thoughts($username: String) {
-    thoughts(username: $username) {
+export const QUERY_ADDRESSES = gql`
+  query addresses($username: String) {
+    addresses(username: $username) {
       _id
-      thoughtText
-      createdAt
-      username
-      reactionCount
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
+      addressName
+      streetName
+      cityName
+      state
+      zipCode
     }
   }
-`;
+`
 
-export const QUERY_THOUGHT = gql`
-  query thought($id: ID!) {
-    thought(_id: $id) {
+export const QUERY_ADDRESS = gql`
+  query address($id: ID!) {
+    address(_id: $id) {
       _id
-      thoughtText
-      createdAt
-      username
-      reactionCount
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
+      addressName
+      streetName
+      cityName
+      state
+      zipCode
     }
   }
-`;
+`
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -42,16 +32,13 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
-      friends {
+      addresses {
         _id
-        username
-      }
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
+        addressName
+        streetName
+        cityName
+        state
+        zipCode
       }
     }
   }
@@ -63,22 +50,13 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      friendCount
-      thoughts {
+      addresses {
         _id
-        thoughtText
-        createdAt
-        reactionCount
-        reactions {
-          _id
-          createdAt
-          reactionBody
-          username
-        }
-      }
-      friends {
-        _id
-        username
+        addressName
+        streetName
+        cityName
+        state
+        zipCode
       }
     }
   }
@@ -90,11 +68,44 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      friendCount
-      friends {
-        _id
-        username
-      }
     }
   }
 `;
+
+export const QUERY_ALL_MEALS =gql`
+query meals {
+    meals {
+      _id
+      name
+      price
+      mealType
+      description
+    }
+  }
+`
+
+export const QUERY_MEALS =gql`
+query meals {
+    meals {
+      _id
+      name
+      price
+      mealType
+      description
+      image
+    }
+  }
+`
+
+export const QUERY_MEAL = gql`
+  query meal($id: ID!) {
+    meal(_id: $id) {
+      _id
+      name
+      price
+      mealType
+      description
+      image
+    }
+  }
+`

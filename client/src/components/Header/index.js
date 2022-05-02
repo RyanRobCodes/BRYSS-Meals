@@ -10,17 +10,16 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
+    <header className="bg-secondary py-1 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <h1>Deep Thoughts</h1>
+          <h1 className='header-title'>BRYSS</h1>
         </Link>
 
         <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
-              <Link to="/profile">Me</Link>
-              <a href="/" onClick={logout}>
+              <a className="logoutBtn" href="/" onClick={logout}>
                 Logout
               </a>
             </>
