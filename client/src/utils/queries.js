@@ -128,3 +128,15 @@ export const QUERY_REVIEWS = gql`
     }
   }
 `
+
+export const QUERY_ALL_REVIEWS = gql `
+  query allReviews {
+    allReviews {
+      _id
+      reviewText
+      createdAt
+      username
+      mealName
+    }
+  }
+`

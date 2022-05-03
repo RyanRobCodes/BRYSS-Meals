@@ -12,30 +12,36 @@ const Modal = ({currentMeal, onClose, show}) => {
         variables: { username: userParam }
       });
     
-      const user = data?.me || data?.user || {};
-      const mealname = currentMeal?.name
-      console.log(user?.username)
-      console.log(mealname)
+    const user = data?.me || data?.user || {};
+
+    console.log(user?.username)
+    console.log(currentMeal?.name)
 
     const [reviewText, setReviewText] = useState('');
-
-    const [addReview] = useMutation(ADD_REVIEW,
-        {variables: { reviewText: reviewText, username: user?.username, mealName: mealname}})
+    const [mealForReview, setMealForReview] = useState('');
+    const [usernameForReview, setUsernameForReview] = useState('');
 
     const handleChange = event => {
         setReviewText(event.target.value);
+        setUsernameForReview(user?.username)
+        setMealForReview(currentMeal?.name)
     };
+
+    const [addReview] = useMutation(ADD_REVIEW,
+        {variables: { reviewText: reviewText, username: usernameForReview, mealName: mealForReview}})
 
     const handleReviewSubmit = async event => {
         event.preventDefault();
         try {
             await addReview({
-                variables: {reviewText: reviewText, mealName: currentMeal.name, username: user.username},
+                variables: {reviewText: reviewText, username: usernameForReview, mealName: mealForReview},
             });
             setReviewText('');
+            setUsernameForReview('');
+            setMealForReview('');
         } catch (e) {
             console.log(JSON.stringify(e, null, 2));
-
+            console.log(e)
         }
     }
 
@@ -78,7 +84,7 @@ const Modal = ({currentMeal, onClose, show}) => {
                     </div>
                 </div>
                 <div className="modal-footer py-1">
-                    <button className="btn">Cart</button>
+                    <button className="btn">Add to Cart</button>
                     <button onClick={onClose} className="btn">Close</button>
                 </div>
             </div>

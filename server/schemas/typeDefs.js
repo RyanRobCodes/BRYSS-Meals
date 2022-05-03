@@ -52,14 +52,15 @@ const typeDefs = gql`
     meal(_id: ID!): Meal
     review(_id: ID!): Review
     reviews(username: String, mealName: String): [Review]
+    allReviews: [Review]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addReview(reviewText: String!): Review
     addAddress(addressName: String!, streetName: String!, cityName: String!, state: String!, zipCode: String!): Address
     addMeals(name: String!, price: Int!, mealType: String!, description: String!, image: String!): Meal
+    addReview(reviewText: String!, mealName: String!, username: String!): Review
   }
 `;
 

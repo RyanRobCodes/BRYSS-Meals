@@ -35,9 +35,12 @@ const resolvers = {
     meals: async () => {
       return Meal.find()
     },
-    reviews: async (parent, { _id }) => {
+    review: async (parent, { _id }) => {
       return Review.findOne({ _id });
     },
+    reviews: async () => {
+      return Review.find()
+    }
   },
 
   Mutation: {
@@ -93,18 +96,18 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     }, 
-    addReview: async (parent, args, context) => {
-      if (context.user || context.meal) {
-        const review = await Review.create({...args, username: context.user.username, mealName: context.meal.name});
-          
+    addReview: async (parent, {reviewText, mealName, username}, context) => {
+      if (username || mealName) {
+        const review = await Review.create({reviewText: reviewText, username: username, mealName: mealName});
+
         await User.findByIdAndUpdate(
             { _id: context.user._id },
             { $push: {reviews: review._id }},
             { new: true }
           );
 
-        await Meal.findByIdAndUpdate(
-          { _id: context.meal._id },
+        await Meal.findOneAndUpdate(
+          { name: mealName },
           { $push: {reviews: review._id}},
           { new: true }
         )
