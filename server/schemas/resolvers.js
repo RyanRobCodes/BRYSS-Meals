@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Address, Meal } = require('../models');
+const { User, Address, Meal, Review } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -35,8 +35,8 @@ const resolvers = {
     meals: async () => {
       return Meal.find()
     },
-    address: async (parent, { _id }) => {
-      return Meal.findOne({ _id });
+    reviews: async (parent, { _id }) => {
+      return Review.findOne({ _id });
     },
   },
 
@@ -93,6 +93,26 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     }, 
+    addReview: async (parent, args, context) => {
+      if (context.user || context.meal) {
+        const review = await Review.create({...args, username: context.user.username, mealName: context.meal.name});
+          
+        await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: {reviews: review._id }},
+            { new: true }
+          );
+
+        await Meal.findByIdAndUpdate(
+          { _id: context.meal._id },
+          { $push: {reviews: review._id}},
+          { new: true }
+        )
+
+        return review;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
   }
 };
 

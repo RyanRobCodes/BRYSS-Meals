@@ -1,7 +1,44 @@
-import React from "react";
-import eximage from "../../assets/images/small-plate.jpg";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_REVIEW } from '../../utils/mutations';
+import { QUERY_ME, QUERY_USER } from '../../utils/queries';
+
 
 const Modal = ({currentMeal, onClose, show}) => {
+    const { username: userParam } = useParams();
+
+    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+        variables: { username: userParam }
+      });
+    
+      const user = data?.me || data?.user || {};
+      const mealname = currentMeal?.name
+      console.log(user?.username)
+      console.log(mealname)
+
+    const [reviewText, setReviewText] = useState('');
+
+    const [addReview] = useMutation(ADD_REVIEW,
+        {variables: { reviewText: reviewText, username: user?.username, mealName: mealname}})
+
+    const handleChange = event => {
+        setReviewText(event.target.value);
+    };
+
+    const handleReviewSubmit = async event => {
+        event.preventDefault();
+        try {
+            await addReview({
+                variables: {reviewText: reviewText, mealName: currentMeal.name, username: user.username},
+            });
+            setReviewText('');
+        } catch (e) {
+            console.log(JSON.stringify(e, null, 2));
+
+        }
+    }
+
     if (!show) {
         return null
     }
@@ -28,7 +65,15 @@ const Modal = ({currentMeal, onClose, show}) => {
                     </div>
                     <div className="modal-bottom my-3">
                         <div className="modal-ingredient">
-                            <p> some reviews? </p>
+                            <form onSubmit={handleReviewSubmit}>
+                                <textarea
+                                    placeholder='Review on this meal!'
+                                    value={reviewText}
+                                    className="col-12"
+                                    onChange={handleChange}
+                                ></textarea>
+                                <button type="submit">Post Review</button>
+                            </form>
                         </div>
                     </div>
                 </div>
