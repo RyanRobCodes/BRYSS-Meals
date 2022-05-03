@@ -48,3 +48,16 @@ export const ADD_REVIEW = gql`
     }
   }
 `
+
+export const EDIT_ADDRESS = gql`
+  mutation editAddress($_id: ID!, $addressName: String!, $streetName: String!, $cityName: String!, $state: String!, $zipCode: String!){
+    editAddress(_id: $_id, addressName: $addressName, streetName: $streetName, cityName: $cityName, state: $state, zipCode: $zipCode) {
+      _id
+      addressName
+      streetName
+      cityName
+      state
+      zipCode
+    }
+  }
+`

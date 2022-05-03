@@ -42,7 +42,7 @@ const Address = (e) => {
     const handleFormSubmit = async event => {
     event.preventDefault();
     try {
-        // add thought to database
+        // add address to database
         await addAddress({
           variables: { addressName: addressName, streetName: streetName, cityName: cityName, state: state, zipCode:zipCode }
         });

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
-
+import ReviewListModal from '../ReviewListModal';
 
 const Modal = ({currentMeal, onClose, show}) => {
     const { username: userParam } = useParams();
@@ -70,15 +70,18 @@ const Modal = ({currentMeal, onClose, show}) => {
                         </div>
                     </div>
                     <div className="modal-bottom my-3">
-                        <div className="modal-ingredient">
-                            <form onSubmit={handleReviewSubmit}>
+                        <div className=" col-12">
+                            <ReviewListModal currentMeal={currentMeal?.name} />
+                        </div>
+                        <div className="modal-addReview col-12">
+                            <form className="flex-row justify-space-around" onSubmit={handleReviewSubmit}>
                                 <textarea
                                     placeholder='Review on this meal!'
                                     value={reviewText}
-                                    className="col-12"
+                                    className="review-textarea col-9 mb-1"
                                     onChange={handleChange}
                                 ></textarea>
-                                <button type="submit">Post Review</button>
+                                <button className='btn col-3' type="submit">Post Review</button>
                             </form>
                         </div>
                     </div>

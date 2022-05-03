@@ -61,6 +61,7 @@ const typeDefs = gql`
     addAddress(addressName: String!, streetName: String!, cityName: String!, state: String!, zipCode: String!): Address
     addMeals(name: String!, price: Int!, mealType: String!, description: String!, image: String!): Meal
     addReview(reviewText: String!, mealName: String!, username: String!): Review
+    editAddress(_id: ID!, addressName: String!, streetName: String!, cityName: String!, state: String!, zipCode: String!): Address
   }
 `;
 

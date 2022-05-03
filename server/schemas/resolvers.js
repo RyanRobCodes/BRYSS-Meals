@@ -40,6 +40,9 @@ const resolvers = {
     },
     reviews: async () => {
       return Review.find()
+    },
+    allReviews: async () => {
+      return Review.find()
     }
   },
 
@@ -115,6 +118,17 @@ const resolvers = {
         return review;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    editAddress: async (parent, args, context) => {
+      await Address.findByIdAndUpdate(
+        { _id: args._id},
+        { addressName: args.addressName,
+          streetName: args.streetName,
+          cityName: args.cityName,
+          state: args.state,
+          zipCode: args.zipCode
+          }
+      )
     }
   }
 };

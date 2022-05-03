@@ -1,7 +1,7 @@
 :root {
   --primary: #16561e;
   --secondary: #abc8a3;
-  --tertiary: #F7F7F2 ;
+  --tertiary: #d1e1cf ;
   --quatrinary: #F7A072;
   --light: #f2f7f3; 
   --dark: #415744;
@@ -1488,7 +1488,7 @@ main {
 
 .sidebar {
   height: 100%;
-  background-color: var(--tertiary);
+  background-color: var(--light);
 }
 
 .sidebar-logo {
@@ -1612,7 +1612,7 @@ main {
 }
 
 .modal-bottom {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -1621,9 +1621,16 @@ main {
   font-weight: bolder;
 }
 
-.modal-ingredient p {
+.modal-addReview p {
   color: rgb(0, 0, 0);
   font-weight: lighter;
+}
+
+.review-textarea {
+  border: 2px solid #ccc;
+  width: 100%;
+  min-height: 100px;
+  font-size: 1rem;
 }
 
 .modal-btn {
@@ -1725,4 +1732,31 @@ main {
 
 .mealName {
   height: 50px;
+}
+
+.review-container {
+  border: var(--primary) 3px solid;
+  border-radius: 10px;
+}
+
+.review-header {
+  border-bottom: var(--primary) 1px solid;
+  background-color: var(--tertiary);
+}
+
+.review-text {
+  min-height: 100px;
+}
+
+.review-list {
+  margin-bottom: 60px;
+  width: 70%;
+}
+
+.modalReview-text {
+  font-size: 1rem;
+}
+
+.review-username {
+  color:rgb(0, 0, 0)
 }
