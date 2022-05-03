@@ -1,39 +1,40 @@
 import React from "react";
 import eximage from "../../assets/images/small-plate.jpg";
 
-const Modal = e => {
-    if (!e.show) {
+const Modal = ({currentMeal, onClose, show}) => {
+    if (!show) {
         return null
     }
 
     return (
-        <div className="modal" onClick={e.onClose}>
+        <div className="modal" onClick={onClose}>
             <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <div className="modal-header">
-                    <h4 className="modal-title">Modal Title</h4>
-                    <div className="modal-sub">Vegetarian</div>
+                    <h4 className="modal-title">{currentMeal.name}</h4>
+                    <div className="modal-sub">${currentMeal.price}</div>
                 </div>
                 <div className= "modal-body">
                     <div className="modal-top">
                         <div className="modal-image">
-                            <img src={eximage} alt="small plate of berry tomatoes"/>
+                            <img src={`/images/${currentMeal.image}`} alt={currentMeal.name}/>
                         </div>
-                        <div className="modal-info" >
+                        <div className="modal-info justify-center" >
                             <div>
-                                <p> Nutritional Info</p>
+                                <div className="description mb-2">Description</div>
+                                <p>{currentMeal.description}</p>
+                                
                             </div>
                         </div>
                     </div>
                     <div className="modal-bottom my-3">
                         <div className="modal-ingredient">
-                            <div className="ingredients mb-2">Ingredients</div>
-                            <p>Tomatoes, Feta Cheese, Lemon, Basil, Butter, Egg, Sea Salt</p>
+                            <p> some reviews? </p>
                         </div>
                     </div>
                 </div>
                 <div className="modal-footer py-1">
                     <button className="btn">Cart</button>
-                    <button onClick={e.onClose} className="btn">Close</button>
+                    <button onClick={onClose} className="btn">Close</button>
                 </div>
             </div>
         </div>

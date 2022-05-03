@@ -15,6 +15,7 @@ const typeDefs = gql`
     price: Int
     mealType: String
     description: String
+    image: String
   }
 
   type Review {

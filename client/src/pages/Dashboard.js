@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Home  from '../components/Home';
 import Shop  from '../components/Shop';
 import Order  from '../components/Order';
 import Profile  from '../components/Profile';
@@ -11,12 +10,9 @@ import Sidebar from '../components/SideBar'
 
 const Dashboard = () => {
 
-  const [currentPage, setCurrentPage] = useState('Home');
+  const [currentPage, setCurrentPage] = useState('Shop');
 
   const renderPage = () => {
-    if (currentPage === 'Home') {
-      return <Home />;
-    }
     if (currentPage === 'Shop') {
       return <Shop />;
     }
