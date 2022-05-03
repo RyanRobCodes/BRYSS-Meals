@@ -20,10 +20,12 @@
     "apollo-server-express": "^3.6.7",
     "bcrypt": "^5.0.1",
     "caniuse-lite": "^1.0.30001334",
+    "ejs": "^3.1.7",
     "express": "^4.18.1",
     "graphql": "^16.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.1",
-    "react-rotating-text": "^1.4.1"
+    "react-rotating-text": "^1.4.1",
+    "stripe": "^8.219.0"
   }
 }
