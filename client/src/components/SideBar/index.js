@@ -11,7 +11,7 @@ const Sidebar = ({currentPage, handlePageChange}) => {
     return (
     <div className='sidebar'>
         <div className={`sidebar-logo navLi`}>
-            <a href="#Home" onClick={() => handlePageChange('Home')}>Hi, {currentUser}</a>
+            <a href="#Home" onClick={() => handlePageChange('Shop')}>Hi, {currentUser}</a>
         </div>
         <nav className="sidebar-menu">
             <ul>

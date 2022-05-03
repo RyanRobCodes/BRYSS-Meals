@@ -72,18 +72,6 @@ export const QUERY_ME_BASIC = gql`
   }
 `;
 
-export const QUERY_ALL_MEALS =gql`
-query meals {
-    meals {
-      _id
-      name
-      price
-      mealType
-      description
-    }
-  }
-`
-
 export const QUERY_MEALS =gql`
 query meals {
     meals {
