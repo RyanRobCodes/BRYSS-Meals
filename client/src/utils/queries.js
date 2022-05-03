@@ -94,6 +94,49 @@ export const QUERY_MEAL = gql`
       mealType
       description
       image
+      reviews {
+        _id
+        reviewText
+        createdAt
+        username
+        mealName
+      }
+    }
+  }
+`
+
+export const QUERY_REVIEW = gql`
+  query review($id: ID!) {
+    review(_id: $id) {
+      _id
+      reviewText
+      createdAt
+      username
+      mealName
+    }
+  }
+`
+
+export const QUERY_REVIEWS = gql`
+  query reviews($username: String, $mealName: String) {
+    reviews(username: $username, mealName: $mealName) {
+      _id
+      reviewText
+      createdAt
+      username
+      mealName
+    }
+  }
+`
+
+export const QUERY_ALL_REVIEWS = gql `
+  query allReviews {
+    allReviews {
+      _id
+      reviewText
+      createdAt
+      username
+      mealName
     }
   }
 `

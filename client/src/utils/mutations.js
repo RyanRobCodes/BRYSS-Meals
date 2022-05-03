@@ -36,3 +36,15 @@ export const ADD_ADDRESS =gql`
     }
   }
 `
+
+export const ADD_REVIEW = gql`
+  mutation addReview($reviewText: String!, $mealName: String!, $username: String!) {
+    addReview(reviewText: $reviewText, mealName: $mealName, username: $username) {
+      _id
+      reviewText
+      createdAt
+      username
+      mealName
+    }
+  }
+`

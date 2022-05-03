@@ -1,8 +1,50 @@
-import React from "react";
-// eslint-disable-next-line
-import eximage from "../../assets/images/small-plate.jpg";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_REVIEW } from '../../utils/mutations';
+import { QUERY_ME, QUERY_USER } from '../../utils/queries';
+
 
 const Modal = ({currentMeal, onClose, show}) => {
+    const { username: userParam } = useParams();
+
+    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+        variables: { username: userParam }
+      });
+    
+    const user = data?.me || data?.user || {};
+
+    console.log(user?.username)
+    console.log(currentMeal?.name)
+
+    const [reviewText, setReviewText] = useState('');
+    const [mealForReview, setMealForReview] = useState('');
+    const [usernameForReview, setUsernameForReview] = useState('');
+
+    const handleChange = event => {
+        setReviewText(event.target.value);
+        setUsernameForReview(user?.username)
+        setMealForReview(currentMeal?.name)
+    };
+
+    const [addReview] = useMutation(ADD_REVIEW,
+        {variables: { reviewText: reviewText, username: usernameForReview, mealName: mealForReview}})
+
+    const handleReviewSubmit = async event => {
+        event.preventDefault();
+        try {
+            await addReview({
+                variables: {reviewText: reviewText, username: usernameForReview, mealName: mealForReview},
+            });
+            setReviewText('');
+            setUsernameForReview('');
+            setMealForReview('');
+        } catch (e) {
+            console.log(JSON.stringify(e, null, 2));
+            console.log(e)
+        }
+    }
+
     if (!show) {
         return null
     }
@@ -29,12 +71,20 @@ const Modal = ({currentMeal, onClose, show}) => {
                     </div>
                     <div className="modal-bottom my-3">
                         <div className="modal-ingredient">
-                            <p> some reviews? </p>
+                            <form onSubmit={handleReviewSubmit}>
+                                <textarea
+                                    placeholder='Review on this meal!'
+                                    value={reviewText}
+                                    className="col-12"
+                                    onChange={handleChange}
+                                ></textarea>
+                                <button type="submit">Post Review</button>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <div className="modal-footer py-1">
-                    <button className="btn">Cart</button>
+                    <button className="btn">Add to Cart</button>
                     <button onClick={onClose} className="btn">Close</button>
                 </div>
             </div>

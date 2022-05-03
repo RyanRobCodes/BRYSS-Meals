@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const Meal = require('./Meal');
 const dateFormat = require('../utils/dateFormat');
 
 const reviewSchema = new Schema(
@@ -19,7 +18,10 @@ const reviewSchema = new Schema(
       type: String,
       required: true
     },
-    meals: [Meal]
+    mealName: {
+      type: String,
+      required: true
+    }
   },
   {
     toJSON: {
@@ -27,10 +29,6 @@ const reviewSchema = new Schema(
     }
   }
 );
-
-Meal.virtual('reviewCount').get(function() {
-  return this.reviews.length;
-});
 
 const Review = model('Review', reviewSchema);
 
