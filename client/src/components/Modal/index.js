@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line
 import eximage from "../../assets/images/small-plate.jpg";
 
 const Modal = ({currentMeal, onClose, show}) => {
