@@ -26,7 +26,7 @@ const resolvers = {
         .populate('addresses')
     },
     addresses: async (parent, { username }) => {
-      const params = username ? { username } : {};
+      const params = username;
       return Address.find(params)
     },
     address: async (parent, { _id }) => {
