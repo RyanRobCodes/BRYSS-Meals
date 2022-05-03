@@ -19,7 +19,10 @@ const reviewSchema = new Schema(
       type: String,
       required: true
     },
-    meals: [Meal]
+    mealName: {
+      type: String,
+      required: ture
+    }
   },
   {
     toJSON: {

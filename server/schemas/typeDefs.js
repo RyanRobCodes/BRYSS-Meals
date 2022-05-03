@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     meals: [Meal]
     addresses: [Address]
+    reviews: [Review]
   } 
 
   type Meal {
@@ -22,7 +23,6 @@ const typeDefs = gql`
     reviewText: String
     createdAt: String
     username: String
-    meals: [Meal]
   }
 
   type Auth {
@@ -48,6 +48,7 @@ const typeDefs = gql`
     meals: [Meal]
     meal(_id: ID!): Meal
     review(_id: ID!): Review
+    reviews(username: String, mealName: String): [Review]
   }
 
   type Mutation {

@@ -30,8 +30,8 @@ const resolvers = {
       .populate('Review')
       .populate('Address')
     },
-    reviews: async (parent, { username }) => {
-      const params = username ? { username } : {};
+    reviews: async (parent, { username, mealName }) => {
+      const params = username && mealName ? { username, mealName } : {};
       return Review.find(params)
     },
     review: async (parent, { _id }) => {
@@ -92,16 +92,21 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     }, 
     addMeals: async (parent, args, context) => {
-      if (context.user) {
-        const meal = await Meal.create({...args, username: context.user.username});
+      if (context.user && context.meal) {
+        const review = await Meal.create({...args, username: context.user.username, mealName: context.meal.name});
           
         await User.findByIdAndUpdate(
             { _id: context.user._id },
-            { $push: {meals: meal._id }},
+            { $push: {reviews: review._id }},
             { new: true }
           );
+        await Meal.findByIdAndUpdate(
+          { _id: context.meal._id },
+          { $push: {reviews: review._id}},
+          { new: true }
+        )
 
-        return meal;
+        return review;
       }
 
       throw new AuthenticationError('You need to be logged in!');
