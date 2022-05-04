@@ -33,7 +33,7 @@ const Landing = () => {
                             <div className='inspiration'>
                                 <p className='quote col-12'>"We all eat, and it would be a sad waste of opportunity to eat badly."<br/>by ANNE THOMAS </p>
                                 <p className='promise'>
-                                    We only treats the best and freshest ingredients with carefully selected excellent chefs.<br/> Start your weekly meal plan now!
+                                    We only treat the best and freshest ingredients with carefully selected excellent chefs.<br/> Start your weekly meal plan now!
                                 </p>
 
                             </div>
