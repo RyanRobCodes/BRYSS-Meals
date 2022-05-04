@@ -83,7 +83,10 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    }, 
+    },
+      deleteAddress: async (parent, args, context) => {
+        await Address.findByIdAndDelete({_id: args._id})
+    },
     addMeals: async (parent, args, context) => {
       if (context.user) {
         const meal = await Meal.create({...args, username: context.user.username});

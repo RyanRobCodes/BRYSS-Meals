@@ -14,9 +14,6 @@ const Modal = ({currentMeal, onClose, show}) => {
     
     const user = data?.me || data?.user || {};
 
-    console.log(user?.username)
-    console.log(currentMeal?.name)
-
     const [reviewText, setReviewText] = useState('');
     const [mealForReview, setMealForReview] = useState('');
     const [usernameForReview, setUsernameForReview] = useState('');

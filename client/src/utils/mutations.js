@@ -61,3 +61,9 @@ export const EDIT_ADDRESS = gql`
     }
   }
 `
+
+export const DELETE_ADDRESS = gql`
+  mutation deleteAddress($_id: ID!){
+    deleteAddress(_id: $_id)
+  }
+`
