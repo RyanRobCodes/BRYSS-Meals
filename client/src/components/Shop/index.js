@@ -17,7 +17,6 @@ const Shop = () => {
   const {data} = useQuery(QUERY_MEALS)
 
   const allMeals = data?.meals
-  console.log(allMeals)
   // console.log(JSON.stringify(error, null, 2));
 
   return (

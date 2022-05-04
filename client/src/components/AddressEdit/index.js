@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { EDIT_ADDRESS } from '../../utils/mutations';
+import { DELETE_ADDRESS, EDIT_ADDRESS } from '../../utils/mutations';
 
 const AddressEdit = ({currentAddress, onClose, show}) => {
   let refreshPage = () => {
@@ -14,6 +14,21 @@ const AddressEdit = ({currentAddress, onClose, show}) => {
   const [zipCode, setZip] = useState('');
 
   const [editAddress] = useMutation(EDIT_ADDRESS)
+
+  const [deleteAddress] = useMutation(DELETE_ADDRESS);
+
+
+  const deleteOnClick = async event => {
+    event.preventDefault();
+    try {
+      await deleteAddress({
+        variables: {_id: currentAddress._id}
+      });
+    } catch (e) {
+      console.log(JSON.stringify(e, null, 2));
+    }
+    refreshPage();
+  };
 
   const handleChange1 = event => {
     setAddressName(event.target.value);
@@ -63,7 +78,7 @@ const AddressEdit = ({currentAddress, onClose, show}) => {
     <div className="modal" onClick={onClose}>
       <div className='modal-address-content' onClick={i => i.stopPropagation()}>
         <div className="modal-header">
-          <h4 className="modal-title">NEW ADDRESS</h4>
+          <h4 className="modal-title">EDIT ADDRESS</h4>
         </div>
         <div className='modal-body'>
           <form onSubmit={handleFormSubmit}>
@@ -96,7 +111,7 @@ const AddressEdit = ({currentAddress, onClose, show}) => {
                 Submit Changes
               </button>
           </form>
-
+          <button className='btn-newAddress' onClick={deleteOnClick}>Delete this Address</button>
         </div>
         <div className="modal-footer py-1">
           <button onClick={onClose} className="btn">Close</button>

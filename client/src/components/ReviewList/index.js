@@ -1,14 +1,11 @@
 import React from 'react';
-import {useParams} from 'react-router-dom'
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL_REVIEWS, QUERY_ME, QUERY_USER } from "../../utils/queries";
+import { QUERY_ALL_REVIEWS} from "../../utils/queries";
 
 const ReviewList = ({currentUser}) => {
 
-const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS)
-console.log(error)
+const {data } = useQuery(QUERY_ALL_REVIEWS)
 const reviews = data?.allReviews
-console.log(reviews)
 
 let thisUser = currentUser?.username
 
