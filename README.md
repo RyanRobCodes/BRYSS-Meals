@@ -6,6 +6,8 @@
 
 ### Deployed Application link: https://bryss-meals.herokuapp.com/
 
+### Group Agreement: https://github.com/RyanRobCodes/BRYSS-Meals/blob/newdevelop/group-agreement.pages
+
 ---
 
 ## Description
