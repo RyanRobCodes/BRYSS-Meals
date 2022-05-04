@@ -16,8 +16,11 @@ import Landing from './pages/Landing';
 import Auth from './utils/auth';
 
 
+
+
 function App() {
 
+  
   const httpLink = createHttpLink({
     uri: '/graphql',
   });
@@ -58,5 +61,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

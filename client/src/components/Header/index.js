@@ -8,6 +8,10 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+  const cart = event => {
+    event.preventDefault();
+    Auth.cart();
+  };
 
   return (
     <header className="bg-secondary py-1 flex-row align-center">
@@ -22,11 +26,15 @@ const Header = () => {
               <a className="logoutBtn" href="/" onClick={logout}>
                 Logout
               </a>
+              <a className="cartBtn" href="/" onClick={cart}>
+                Cart
+              </a>
             </>
           ) : (
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              <Link to="/cart">Cart</Link>
             </>
           )}
         </nav>

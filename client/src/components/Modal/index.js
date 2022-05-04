@@ -5,7 +5,7 @@ import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
 
 
-const Modal = ({currentMeal, onClose, show}) => {
+const Modal = ({currentMeal, onClose, show, onAdd}) => {
     const { username: userParam } = useParams();
 
     const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -84,7 +84,7 @@ const Modal = ({currentMeal, onClose, show}) => {
                     </div>
                 </div>
                 <div className="modal-footer py-1">
-                    <button className="btn">Add to Cart</button>
+                    <button onClick={() => onAdd(currentMeal)}className="btn">Add to Cart</button>
                     <button onClick={onClose} className="btn">Close</button>
                 </div>
             </div>

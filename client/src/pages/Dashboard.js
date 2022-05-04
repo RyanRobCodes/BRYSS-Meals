@@ -3,10 +3,12 @@ import React, {useState} from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Shop  from '../components/Shop';
-import Order  from '../components/Order';
+
 import Profile  from '../components/Profile';
 import Review  from '../components/Review';
-import Sidebar from '../components/SideBar'
+import Sidebar from '../components/SideBar';
+import Cart from '../components/Cart';
+
 
 const Dashboard = () => {
 
@@ -19,8 +21,8 @@ const Dashboard = () => {
     if (currentPage === 'Profile') {
       return <Profile />;
     }
-    if (currentPage === 'Order') {
-      return <Order />;
+    if (currentPage === 'Cart') {
+      return <Cart />;
     }
     if (currentPage === 'Review') {
       return <Review />;

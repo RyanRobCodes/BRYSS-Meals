@@ -21,8 +21,8 @@ const Sidebar = ({currentPage, handlePageChange}) => {
                 <li className={`navLi py-2 ${currentPage==='Profile' ? 'navActive' : ' '}`}>
                     <a href="#Profile" onClick={() => handlePageChange('Profile')}>User Profile</a>
                 </li>
-                <li className={`navLi py-2 ${currentPage==='Order' ? 'navActive' : ' '}`}>
-                    <a href="#Order" onClick={() => handlePageChange('Order')}>Orders</a>
+                <li className={`navLi py-2 ${currentPage==='Cart' ? 'navActive' : ' '}`}>
+                    <a href="#Cart" onClick={() => handlePageChange('Cart')}>Cart</a>
                 </li>
                 <li className={`navLi py-2 ${currentPage==='Review' ? 'navActive' : ' '}`}>
                     <a href="#Review" onClick={() => handlePageChange('Review')}>Reviews</a>
