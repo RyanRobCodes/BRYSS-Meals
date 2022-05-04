@@ -20,8 +20,8 @@ return (
                         {element.mealName === currentMeal ? (
                             <div className='review-container flex-row mb-1'>
                                 <div className='review-header col-12 flex-row justify-space-between align-center'>
-                                    <h6 className='pl-2'> Reviewed by <span className='review-username'>{element.username}</span></h6>
-                                    <h6 className='pr-2'>{element.createdAt}</h6>
+                                    <h6 className='pl-2 meal-review-username'> Reviewed by <span className='review-username'>{element.username}</span></h6>
+                                    <h6 className='pr-2 meal-review-createdAt'>{element.createdAt}</h6>
                                 </div>
                                 <div className='modalReview-text col-12 p-2'>
                                     <div>{element.reviewText}</div>

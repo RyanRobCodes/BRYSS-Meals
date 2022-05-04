@@ -10,16 +10,16 @@ const Sidebar = ({currentPage, handlePageChange}) => {
 
     return (
     <div className='sidebar'>
-        <div className={`sidebar-logo navLi`}>
+        <div className={`sidebar-logo`}>
             <a href="#Home" onClick={() => handlePageChange('Shop')}>Hi, {currentUser}</a>
         </div>
         <nav className="sidebar-menu">
-            <ul>
+            <ul className="sidebar-ul">
                 <li className={`navLi py-2  ${currentPage==='Shop' ? 'navActive' : ' '}`}>
                     <a href="#Shop" onClick={() => handlePageChange('Shop')}>Shop</a>
                 </li>
                 <li className={`navLi py-2 ${currentPage==='Profile' ? 'navActive' : ' '}`}>
-                    <a href="#Profile" onClick={() => handlePageChange('Profile')}>User Profile</a>
+                    <a href="#Profile" onClick={() => handlePageChange('Profile')}>Profile</a>
                 </li>
                 <li className={`navLi py-2 ${currentPage==='Order' ? 'navActive' : ' '}`}>
                     <a href="#Order" onClick={() => handlePageChange('Order')}>Orders</a>

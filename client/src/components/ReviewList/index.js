@@ -23,7 +23,7 @@ return (
                             <div className='review-container flex-row mb-1'>
                                 <div className='review-header col-12 flex-row justify-space-between align-center'>
                                     <h4 className='pl-2'>{element.mealName}</h4>
-                                    <div className='pr-2'>{element.createdAt}</div>
+                                    <div className='pr-2 review-createdAt'>{element.createdAt}</div>
                                 </div>
                                 <div className='review-text col-12 p-2'>
                                     <div>{element.reviewText}</div>

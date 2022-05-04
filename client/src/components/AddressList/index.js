@@ -19,11 +19,11 @@ const AddressList = ({ addresses, title }) => {
     <div className='address-holder'>
       {addresses.map(address => {
           return (
-          <div key={address._id} className="address">
-            <div className="address-name col-12">
+          <div key={address._id} className="address col-md-12">
+            <div className="address-name col-12 col-md-8">
                 <b>{address.addressName}</b>
             </div>
-            <div className="col-12 flex-row justify-center">
+            <div className="col-12 flex-row justify-center col-md-4">
               <button className="address-edit-btn" key={address._id} onClick={() => changeAddress(address)}>Edit</button>
             </div>
           </div>

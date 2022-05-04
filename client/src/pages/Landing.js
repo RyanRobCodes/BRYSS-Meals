@@ -11,23 +11,17 @@ const Landing = () => {
 
     const meals = ["VEGETARIANS", "PESCETARIANS", "MEATLOVERS"]
 
-    // const sayings = [
-    //     "After a good dinner one can forgive anybody, even one's own relatives.", 
-    //     "We all eat, and it would be a sad waste of opportunity to eat badly.",
-    //     "Food brings people together on many different levels. It’s nourishment of the soul and body; it’s truly love.",
-    //     ]
-
         return (
             <div className='LandingPage'>
                 <div className='intro-center'>
-                    <div className='intro-holder'>
-                        <div className="intro col-8">
+                    <div className='flex-row'>
+                        <div className="intro col-8 col-md-12">
                             <div className='title'>
                                 <p>BRYSS</p>
                             </div>
                             <div className="intro-text">
                                 DELICIOUS AND HEALTHY
-                                <br/>MEALS FOR <span  className="rotateText" ><ReactRotatingText items={meals}/></span>
+                                <br/>MEALS FOR <span className='break'><br/></span> <ReactRotatingText className='col-md-12' items={meals}/>
                                 <br/>FROM THE KITCHEN TO YOUR TABLE
                             </div>
                             <div className='inspiration'>
@@ -38,7 +32,7 @@ const Landing = () => {
 
                             </div>
                         </div>
-                        <div className="sideCard col-4">
+                        <div className="sideCard col-4 col-md-12">
                             <div className='startUp'>
                                 <div className="center">
                                     <button className="SignUp"><Link to="/signup">Sign Up</Link></button>
@@ -48,13 +42,13 @@ const Landing = () => {
                         </div>
                     </div>
                     <div className="badge-holder flex-row justify-space-around align-center">
-                                <div className='col-3'>
+                                <div className='col-3 col-md-auto'>
                                     <img className='badge' src={farfar} alt="Farfar badge"/>
                                 </div>
-                                <div className='col-3'>
+                                <div className='col-3 col-md-auto'>
                                     <img className='badge' src={gwBestMealAward} alt="Farfar badge"/>
                                 </div>
-                                <div className='col-3'>
+                                <div className='col-3 col-md-auto'>
                                     <img className='badge' src={neverland} alt="Farfar badge"/>
                                 </div>
                     </div>

@@ -64,7 +64,7 @@ const Modal = ({currentMeal, onClose, show}) => {
                         <div className="modal-info justify-center" >
                             <div>
                                 <div className="description mb-2">Description</div>
-                                <p>{currentMeal.description}</p>
+                                <p className='descriptionP'>{currentMeal.description}</p>
                                 
                             </div>
                         </div>
@@ -81,14 +81,14 @@ const Modal = ({currentMeal, onClose, show}) => {
                                     className="review-textarea col-9 mb-1"
                                     onChange={handleChange}
                                 ></textarea>
-                                <button className='btn col-3' type="submit">Post Review</button>
+                                <button className='btn col-3 postReviewBtn' type="submit">Post Review</button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div className="modal-footer py-1">
-                    <button className="btn">Add to Cart</button>
-                    <button onClick={onClose} className="btn">Close</button>
+                    <button className="btn postReviewBtn">Add to Cart</button>
+                    <button onClick={onClose} className="btn postReviewBtn">Close</button>
                 </div>
             </div>
         </div>

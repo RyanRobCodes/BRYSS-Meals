@@ -33,10 +33,10 @@ const Dashboard = () => {
     <main>
       <Header />
           <section className='dashboard'>
-            <div className='col-2'>
+            <div className='col-2 col-md-12 sidebar-locater'>
               <Sidebar currentPage={currentPage} handlePageChange={handlePageChange}/>
             </div>
-            <div className='col-10'>
+            <div className='col-10 col-md-12'>
               {renderPage()}
             </div>
           </section>

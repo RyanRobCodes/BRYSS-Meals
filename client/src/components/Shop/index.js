@@ -50,7 +50,7 @@ const Shop = () => {
                 {element.mealType==='Pescatarian' ? (
                   <div key={element._id} onClick={() => mealDetailModal(element)} className='eachMeals flex-row justify-center'>
                     <img className='thumbnails' src={`/images/${element.image}`} alt={element.name}/>
-                    <p>{element.name}</p>
+                    <p className='mealName'>{element.name}</p>
                   </div>
                   ) : ('')}
               </>
@@ -67,7 +67,7 @@ const Shop = () => {
                 {element.mealType==='Carnivore' ? (
                   <div key={element._id} onClick={() => mealDetailModal(element)} className='eachMeals flex-row justify-center'>
                     <img className='thumbnails' src={`/images/${element.image}`} alt={element.name}/>
-                    <p>{element.name}</p>
+                    <p className='mealName'>{element.name}</p>
                   </div>
                   ) : ('')}
               </>

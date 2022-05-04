@@ -15,7 +15,7 @@ const Review = () => {
   const user = data?.me || data?.user || {};
 
   return (
-    <div className="m-4">
+    <div className="m-2">
         <ReviewList currentUser={user} />
     </div>
   );

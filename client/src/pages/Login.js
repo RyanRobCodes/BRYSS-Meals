@@ -41,7 +41,7 @@ const Login = (props) => {
 
   return (
     <main className="pt-10p flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
+      <div className="col-12 col-md-12">
         <div className="card">
           <h4 className="card-header">Login</h4>
           <div className="card-body">
