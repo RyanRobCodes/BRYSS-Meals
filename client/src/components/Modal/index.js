@@ -6,6 +6,10 @@ import { QUERY_ME, QUERY_USER } from '../../utils/queries';
 import ReviewListModal from '../ReviewListModal';
 
 const Modal = ({currentMeal, onClose, show}) => {
+
+      let refreshPage = () => {
+    window.location.reload(false)}
+
     const { username: userParam } = useParams();
 
     const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -40,6 +44,7 @@ const Modal = ({currentMeal, onClose, show}) => {
             console.log(JSON.stringify(e, null, 2));
             console.log(e)
         }
+        refreshPage();
     }
 
     if (!show) {
